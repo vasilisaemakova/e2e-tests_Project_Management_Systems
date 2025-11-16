@@ -13,9 +13,9 @@ export class BoardsPage {
     const projectsLink = this.page.getByRole('link', { name: 'Проекты' });
     await projectsLink.click();
     await this.page.waitForLoadState('networkidle');
+    await expect(this.page.getByRole('heading', { name: 'Проекты' })).toBeVisible();
   }
 
-  // Список проектов
   async openBoard(name: string) {
     const projectHeading = this.page.getByRole('heading', { name: name, level: 6 });
     const projectCard = projectHeading.locator('..');
@@ -49,7 +49,6 @@ export class BoardsPage {
     await expect(this.page).toHaveURL(/\/boards/);
   }
 
-  // Доска проекта
   async expectOpenedForProject(projectName: string) {
     await expect(this.page).toHaveURL(/\/board\//);
     await expect(this.page.getByRole('heading', { name: projectName })).toBeVisible();

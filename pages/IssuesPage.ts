@@ -14,6 +14,9 @@ export class IssuesPage {
   async open() {
     await this.page.goto('/');
     await this.page.waitForLoadState('networkidle');
+    await expect(this.page.getByRole('heading', { name: 'Список задач' })).toBeVisible();
+    const taskHeadings = this.page.getByRole('heading', { level: 6 });
+    await expect(taskHeadings.first()).toBeVisible();
   }
 
   async openCreateTaskModal() {

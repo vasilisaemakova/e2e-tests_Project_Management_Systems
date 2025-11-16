@@ -8,6 +8,7 @@ export class TaskModal {
   readonly prioritySelect: Locator;
   readonly assigneeSelect: Locator;
   readonly createButton: Locator;
+  readonly goToBoardButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -18,6 +19,7 @@ export class TaskModal {
     this.prioritySelect = modal.locator('text=Приоритет').locator('..').getByRole('combobox').first();
     this.assigneeSelect = modal.locator('text=Исполнитель').locator('..').getByRole('combobox').first();
     this.createButton = page.getByRole('button', { name: 'Создать' });
+    this.goToBoardButton = page.getByRole('link', { name: /Перейти на доску|ПЕРЕЙТИ НА ДОСКУ/i });
   }
 
   async expectOpened() {
