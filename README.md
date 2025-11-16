@@ -1,4 +1,6 @@
-# E2E тесты для Task Tracker
+# 1. Задание в файле Task_1.docx
+
+# 2. E2E тесты для Task Tracker
 
 Автоматизированные end-to-end тесты для приложения Task Tracker, написанные с использованием Playwright и Allure для отчётности.
 
@@ -71,4 +73,6 @@ npx allure generate ./allure-results --clean -o ./allure-report
 npx allure open ./allure-report
 ```
 
----
+# Тест-кейсы
+
+## ![alt text](test_case_Avito.jpg)
